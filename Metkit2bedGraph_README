@@ -1,0 +1,22 @@
+METHYLKIT 2 RNBEADS
+
+This script takes a Methylkit compatible output, format as follows:
+
+chrBase   chr   base    strand    coverage    freqC   freqT
+x.xxxx    x      xxxx     R/F       1-n       100.00    0.00
+
+And outputs a bedGraph style format (header not included! read notes below):0
+
+chr   start   end    coverage   freqC   freqT
+ x    xxxx    xxxx     1-n     100.00    0.00
+
+A few things to bear in mind:
+
+1) Methylkit output does not have base start / base end columns. This would correspond to a start position - I have been working with RStudio so I add the column as needed there, 
+but I intend to update this script so that it performs the addition of this column.
+
+2) bedGraph format does not require a header. I have uploaded a bash script that I use to remove the header on my files, but I also will update this script
+so that everything is done in one go.
+
+3) Frequencies of C and T are technically meant to be whole numbers - I have not parsed this yet as I do it in RStudio, but I will be updating this script
+to change this
